@@ -8,10 +8,9 @@
     <meta name="theme-color" content="#040b19">
     <title> 台灣儲蓄險分析系統 </title>
     
-    <!-- PWA 相關連結 - 修正圖標問題 -->
-    <link rel="manifest" href="./manifest.json">
+    <!-- PWA 相關連結 - 修正圖標問題 -->    <link rel="manifest" href="./manifest.json">
     <link rel="apple-touch-icon" href="./icons/icon-180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">>
+    <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
     
     <!-- 外部樣式表 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -111,14 +110,13 @@
                 </ul>
             </div>
         </div>
-        
-        <!-- 主內容區域 -->
+          <!-- 主內容區域 -->
         <div class="dashboard-grid">
             <div class="panel" style="grid-column: span 3;">
                 <div class="tech-frame top-left"></div>
                 <div class="tech-frame top-right"></div>
                 <div class="tech-frame bottom-left"></div>
-                <div's="tech-frame bottom-right"></div>
+                <div class="tech-frame bottom-right"></div>
                 <div class="shimmer-effect"></div>
                 
                 <div class="tab-content scroll-container" id="analysisTabContent">
@@ -284,8 +282,9 @@
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    </div>                                </div>
+                            </div>
+                        </div>
                         
                         <form id="policyForm">
                             <!-- 保單類型選擇 - 更改預設年期 -->
@@ -381,12 +380,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- 自家保單 - 添加年配息欄位 -->
+                            </div>                            <!-- 自家保單 - 添加年配息欄位 -->
                             <div class="tech-card tech-card-primary mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
                                 <div class="card-header tech-card-header">
                                     <i class="fas fa-home me-2"></i> 自家保單
+                                    <span class="badge bg-info ms-2" style="font-size: 0.7rem;"> 選填項目 </span>
                                 </div>
                                 <div class="card-body">
                                     <div class="row mb-3">
@@ -394,7 +392,7 @@
                                             <label for="ownName" class="form-label tech-bright-text"> 保單名稱 </label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-tag"></i></span>
-                                                <input type="text" class="form-control tech-input" id="ownName" placeholder=" 請輸入保單名稱 " value=" 自家保單 ">
+                                                <input type="text" class="form-control tech-input" id="ownName" placeholder=" 請輸入保單名稱（選填） " value=" 自家保單 ">
                                             </div>
                                         </div>
                                     </div>
@@ -402,28 +400,28 @@
                                         <div class="col-md-3">
                                             <label for="ownPremium" class="form-label tech-bright-text"> 年繳保費 </label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control tech-input" id="ownPremium" placeholder=" 例 : 50">
+                                                <input type="number" class="form-control tech-input" id="ownPremium" placeholder=" 選填 ">
                                                 <span class="input-group-text currency-unit"> 萬 </span>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="ownRate" class="form-label tech-bright-text"> 預定利率 </label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control tech-input" id="ownRate" step="0.1" placeholder=" 例 : 2.1">
+                                                <input type="number" class="form-control tech-input" id="ownRate" step="0.1" placeholder=" 選填 ">
                                                 <span class="input-group-text">%</span>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="ownDividend" class="form-label tech-bright-text"> 年配息金額 </label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control tech-input" id="ownDividend" step="0.1" placeholder=" 例 : 1.5">
+                                                <input type="number" class="form-control tech-input" id="ownDividend" step="0.1" placeholder=" 選填 ">
                                                 <span class="input-group-text currency-unit"> 萬 </span>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="ownSurrender" class="form-label tech-bright-text"> 期末解約金 </label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control tech-input" id="ownSurrender" placeholder=" 例 : 315">
+                                                <input type="number" class="form-control tech-input" id="ownSurrender" placeholder=" 選填 ">
                                                 <span class="input-group-text currency-unit"> 萬 </span>
                                             </div>
                                         </div>
@@ -433,14 +431,14 @@
                                         <div class="col-md-6">
                                             <label for="ownLifeInsurance" class="form-label tech-bright-text"> 壽險額度 </label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control tech-input" id="ownLifeInsurance" placeholder=" 例 : 500">
+                                                <input type="number" class="form-control tech-input" id="ownLifeInsurance" placeholder=" 選填 ">
                                                 <span class="input-group-text currency-unit"> 萬 </span>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="ownLifeInsuranceTerm" class="form-label tech-bright-text"> 壽險保障年限 </label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control tech-input" id="ownLifeInsuranceTerm" placeholder=" 例 : 20">
+                                                <input type="number" class="form-control tech-input" id="ownLifeInsuranceTerm" placeholder=" 選填 ">
                                                 <span class="input-group-text"> 年 </span>
                                             </div>
                                         </div>
@@ -691,9 +689,8 @@
                                 </button>
                             </div>
                         </form>
-                    </div>
-
-                    <!-- 找到計算分析按鈕的區塊，添加特定類名 -->
+                    </div>                    <!-- 注意：已移除重複的計算按鈕，因為上方已有 -->
+                    <!-- 
                     <div class="row action-button-container">
                         <div class="col-12 text-center mb-4">
                             <button id="calculateBtn" class="btn btn-tech-action btn-lg">
@@ -701,6 +698,7 @@
                             </button>
                         </div>
                     </div>
+                    -->
 
                     <!-- 步驟 2: 比較表 -->
                     <div class="tab-pane fade animate__animated animate__fadeIn" id="comparison" role="tabpanel" aria-labelledby="comparison-tab">
@@ -1033,9 +1031,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <!-- 綜合評分內容 - 明確比較基準 -->
+                            </div>                            <!-- 綜合評分內容 - 明確比較基準 -->
                             <div class="tab-pane fade" id="comprehensiveAnalysis" role="tabpanel" aria-labelledby="comprehensive-tab">
                                 <div class="row mb-4">
                                     <div class="col-md-12 animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
@@ -1045,11 +1041,12 @@
                                             <strong> 評分比較基準說明：</strong> 本評分系統以「自家保單」為基準值 (10 分 )，計算各保單在不同維度上的相對表現。
                                             各評分項目權重分配為：報酬率 (35%)、配息 (25%)、醫療保障 (15%) 和壽險保障 (25%)。
                                         </div>
-                                <span class="badge bg-primary text-white"><i class="fas fa-calendar-check me-1"></i><span id="reportDate"></span></span>
-                                <span class="badge bg-info text-white ms-2"><i class="fas fa-money-bill-wave me-1"></i><span id="reportCurrency"> 台幣 (TWD)</span></span>
-                            </div>
-                            
-                            <!-- 報告主要內容 -->
+                                        <span class="badge bg-primary text-white"><i class="fas fa-calendar-check me-1"></i><span id="reportDate"></span></span>
+                                        <span class="badge bg-info text-white ms-2"><i class="fas fa-money-bill-wave me-1"></i><span id="reportCurrency"> 台幣 (TWD)</span></span>
+                                    </div>
+                                </div>
+                                
+                                <!-- 報告主要內容 -->
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="panel" style="height: 100%;">
@@ -1149,12 +1146,12 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    </div>    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="./ios-touch-fixes.js"></script>
     <script src="./script.js"></script>
+    <script src="./visual-enhancements.js"></script>
     
     <!-- 註冊 Service Worker -->
     <script>

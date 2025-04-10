@@ -1,0 +1,575 @@
+<!-- 報酬分析表格與圖表模板 -->
+<div class="row mb-4">
+    <div class="col-md-6 animate__animated animate__fadeInLeft" style="animation-delay: 0.2s">
+        <div class="panel own-comparison-panel glow-border-blue">
+            <div class="tech-frame top-left"></div>
+            <div class="tech-frame top-right"></div>
+            <div class="tech-frame bottom-left"></div>
+            <div class="tech-frame bottom-right"></div>
+            <div class="panel-title"><i class="fas fa-percentage me-2"></i> 年化報酬率分析 </div>
+            
+            <table class="table table-striped table-hover tech-table" id="irrTable">
+                <thead>
+                    <tr>
+                        <th> 保單名稱 </th>
+                        <th>IRR</th>
+                        <th> 排名 </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="best-performance">
+                        <td> 自家保單 </td>
+                        <td>3.2%</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td> 競品 A</td>
+                        <td>2.8%</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td> 競品 B</td>
+                        <td>3.0%</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td> 競品 C</td>
+                        <td>2.5%</td>
+                        <td>4</td>
+                    </tr>
+                    <tr class="market-average">
+                        <td> 市場平均 </td>
+                        <td>2.6%</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6 animate__animated animate__fadeInRight" style="animation-delay: 0.2s">
+        <div class="panel glow-border-blue">
+            <div class="tech-frame top-left"></div>
+            <div class="tech-frame top-right"></div>
+            <div class="tech-frame bottom-left"></div>
+            <div class="tech-frame bottom-right"></div>
+            <div class="panel-title"><i class="fas fa-chart-column me-2"></i>IRR 圖表比較 </div>
+            
+            <div class="chart-container" style="height: 300px;">
+                <canvas id="irrChart"></canvas>
+                <div class="shimmer-effect"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 解約金差異比較表 -->
+<div class="row mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
+    <div class="col-md-12">
+        <div class="tech-card tech-card-inner glow-border-yellow">
+            <div class="card-header tech-card-header">
+                <i class="fas fa-money-bill-wave me-2"></i> 解約金差異比較
+            </div>
+            <div class="card-body table-responsive">
+                <table class="table table-striped table-hover tech-table" id="surrenderTable">
+                    <thead>
+                        <tr>
+                            <th> 保單名稱 </th>
+                            <th> 期滿解約金 </th>
+                            <th> 與自家保單差額 </th>
+                            <th> 總繳保費 </th>
+                            <th> 總報酬率 </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="best-performance">
+                            <td> 自家保單 </td>
+                            <td>315 萬 </td>
+                            <td>-</td>
+                            <td>240 萬 </td>
+                            <td>31.2%</td>
+                        </tr>
+                        <tr>
+                            <td> 競品 A</td>
+                            <td>295 萬 </td>
+                            <td>-20 萬 </td>
+                            <td>240 萬 </td>
+                            <td>22.9%</td>
+                        </tr>
+                        <tr>
+                            <td> 競品 B</td>
+                            <td>305 萬 </td>
+                            <td>-10 萬 </td>
+                            <td>240 萬 </td>
+                            <td>27.1%</td>
+                        </tr>
+                        <tr>
+                            <td> 競品 C</td>
+                            <td>285 萬 </td>
+                            <td>-30 萬 </td>
+                            <td>240 萬 </td>
+                            <td>18.7%</td>
+                        </tr>
+                        <tr class="market-average">
+                            <td> 市場平均 </td>
+                            <td>290 萬 </td>
+                            <td>-25 萬 </td>
+                            <td>240 萬 </td>
+                            <td>20.8%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 利率敏感度分析表 -->
+<div class="row mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+    <div class="col-md-12">
+        <div class="tech-card tech-card-inner glow-border-purple">
+            <div class="card-header tech-card-header">
+                <i class="fas fa-chart-line me-2"></i> 利率敏感度分析
+            </div>
+            <div class="card-body">
+                <table class="table table-striped table-hover tech-table" id="sensitivityTable">
+                    <thead>
+                        <tr>
+                            <th> 保單名稱 </th>
+                            <th> 低利率情境 <br><small class="text-muted">( 降低 0.3%)</small></th>
+                            <th> 目前利率 <br><small class="text-muted">( 基準 )</small></th>
+                            <th> 高利率情境 <br><small class="text-muted">( 提高 0.3%)</small></th>
+                            <th> 波動範圍 </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="stable-performance">
+                            <td> 自家保單 </td>
+                            <td>2.9%</td>
+                            <td>3.2%</td>
+                            <td>3.5%</td>
+                            <td>0.6%</td>
+                        </tr>
+                        <tr>
+                            <td> 競品 A</td>
+                            <td>2.3%</td>
+                            <td>2.8%</td>
+                            <td>3.3%</td>
+                            <td>1.0%</td>
+                        </tr>
+                        <tr class="stable-performance">
+                            <td> 競品 B</td>
+                            <td>2.7%</td>
+                            <td>3.0%</td>
+                            <td>3.3%</td>
+                            <td>0.6%</td>
+                        </tr>
+                        <tr>
+                            <td> 競品 C</td>
+                            <td>2.1%</td>
+                            <td>2.5%</td>
+                            <td>2.9%</td>
+                            <td>0.8%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 配息分析表格與圖表模板 -->
+<div class="row mb-4">
+    <div class="col-md-6 animate__animated animate__fadeInLeft" style="animation-delay: 0.2s">
+        <div class="panel own-comparison-panel glow-border-green">
+            <div class="tech-frame top-left"></div>
+            <div class="tech-frame top-right"></div>
+            <div class="tech-frame bottom-left"></div>
+            <div class="tech-frame bottom-right"></div>
+            <div class="panel-title"><i class="fas fa-coins me-2"></i> 年配息分析 </div>
+            
+            <table class="table table-striped table-hover tech-table" id="dividendTable">
+                <thead>
+                    <tr>
+                        <th> 保單名稱 </th>
+                        <th> 配息率 </th>
+                        <th> 年配息金額 </th>
+                        <th> 排名 </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="best-performance">
+                        <td> 自家保單 </td>
+                        <td>3.0%</td>
+                        <td>1.5 萬 </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td> 競品 A</td>
+                        <td>2.6%</td>
+                        <td>1.3 萬 </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td> 競品 B</td>
+                        <td>2.8%</td>
+                        <td>1.4 萬 </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td> 競品 C</td>
+                        <td>2.4%</td>
+                        <td>1.2 萬 </td>
+                        <td>4</td>
+                    </tr>
+                    <tr class="market-average">
+                        <td> 市場平均 </td>
+                        <td>2.5%</td>
+                        <td>1.25 萬 </td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6 animate__animated animate__fadeInRight" style="animation-delay: 0.2s">
+        <div class="panel glow-border-green">
+            <div class="tech-frame top-left"></div>
+            <div class="tech-frame top-right"></div>
+            <div class="tech-frame bottom-left"></div>
+            <div class="tech-frame bottom-right"></div>
+            <div class="panel-title"><i class="fas fa-chart-column me-2"></i> 配息圖表比較 </div>
+            
+            <div class="chart-container" style="height: 300px;">
+                <canvas id="dividendChart"></canvas>
+                <div class="shimmer-effect"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 配息累積效益分析 -->
+<div class="row mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
+    <div class="col-md-12">
+        <div class="panel glow-border-green">
+            <div class="tech-frame top-left"></div>
+            <div class="tech-frame top-right"></div>
+            <div class="tech-frame bottom-left"></div>
+            <div class="tech-frame bottom-right"></div>
+            <div class="panel-title"><i class="fas fa-history me-2"></i> 配息累積效益分析 (20 年 )</div>
+            
+            <div class="chart-container" style="height: 300px;">
+                <canvas id="cumulativeDividendChart"></canvas>
+                <div class="shimmer-effect"></div>
+            </div>
+            
+            <div class="dividend-accumulation-container mt-4">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover tech-table" id="cumulativeDividendTable">
+                        <thead>
+                            <tr>
+                                <th> 保單名稱 </th>
+                                <th>20 年配息總額 </th>
+                                <th> 利息增益 </th>
+                                <th> 累積總額 </th>
+                                <th> 累積成長率 </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="best-performance">
+                                <td> 自家保單 </td>
+                                <td>30 萬 </td>
+                                <td>6.8 萬 </td>
+                                <td>36.8 萬 </td>
+                                <td>22.7%</td>
+                            </tr>
+                            <tr>
+                                <td> 競品 A</td>
+                                <td>26 萬 </td>
+                                <td>5.4 萬 </td>
+                                <td>31.4 萬 </td>
+                                <td>20.8%</td>
+                            </tr>
+                            <tr>
+                                <td> 競品 B</td>
+                                <td>28 萬 </td>
+                                <td>6.2 萬 </td>
+                                <td>34.2 萬 </td>
+                                <td>22.1%</td>
+                            </tr>
+                            <tr>
+                                <td> 競品 C</td>
+                                <td>24 萬 </td>
+                                <td>4.8 萬 </td>
+                                <td>28.8 萬 </td>
+                                <td>20.0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 醫療保障分析內容 -->
+<div class="row mb-4">
+    <div class="col-md-6 animate__animated animate__fadeInLeft" style="animation-delay: 0.2s">
+        <div class="tech-card tech-card-inner glow-border-pink">
+            <div class="card-header tech-card-header">
+                <i class="fas fa-heartbeat me-2"></i> 醫療保障評分比較
+            </div>
+            <div class="card-body">
+                <table class="table table-striped table-hover tech-table" id="medicalTable">
+                    <thead>
+                        <tr>
+                            <th> 保單名稱 </th>
+                            <th> 是否含醫療 </th>
+                            <th> 保障範圍 </th>
+                            <th> 評分 </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="best-performance">
+                            <td> 自家保單 </td>
+                            <td> 是 </td>
+                            <td> 重大疾病、住院、手術 </td>
+                            <td>9.3</td>
+                        </tr>
+                        <tr>
+                            <td> 競品 A</td>
+                            <td> 是 </td>
+                            <td> 住院、手術 </td>
+                            <td>7.5</td>
+                        </tr>
+                        <tr>
+                            <td> 競品 B</td>
+                            <td> 是 </td>
+                            <td> 重大疾病、住院 </td>
+                            <td>8.2</td>
+                        </tr>
+                        <tr class="no-feature">
+                            <td> 競品 C</td>
+                            <td> 否 </td>
+                            <td> 無 </td>
+                            <td>0.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 animate__animated animate__fadeInRight" style="animation-delay: 0.2s">
+        <div class="tech-card tech-card-inner glow-border-pink">
+            <div class="card-header tech-card-header">
+                <i class="fas fa-stethoscope me-2"></i> 醫療保障詳細評估
+            </div>
+            <div class="card-body" id="medicalDetails">
+                <div id="medicalDetailContent" class="mb-4">
+                    <div class="medical-comparison-summary">
+                        <p><i class="fas fa-check-circle text-success me-2"></i> <strong> 自家保單 </strong> 提供最全面的醫療保障，包括重大疾病、住院和手術三項主要保障。</p>
+                        <p><i class="fas fa-info-circle text-info me-2"></i> <strong> 競品 B</strong> 缺少手術醫療保障，整體評分較低。</p>
+                        <p><i class="fas fa-exclamation-triangle text-warning me-2"></i> <strong> 競品 A</strong> 缺少重大疾病保障，風險承擔較高。</p>
+                        <p><i class="fas fa-times-circle text-danger me-2"></i> <strong> 競品 C</strong> 不包含醫療險功能。</p>
+                    </div>
+                </div>
+                <div id="medicalChartContainer" class="chart-container" style="height: 260px;">
+                    <canvas id="medicalChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
+    <div class="col-md-12">
+        <div class="tech-card tech-card-inner glow-border-pink">
+            <div class="card-header tech-card-header">
+                <i class="fas fa-clipboard-list me-2"></i> 醫療保障詳細比較
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info" id="medicalEfficiencyAlert">
+                    <h5><i class="fas fa-heartbeat me-2"></i> 醫療保障效益分析 </h5>
+                    <p> 根據比較，<strong> 自家保單 </strong> 醫療保障最為全面，保障額度最高，適合需要完整醫療保障的客戶。雖然年保費較高，但保障 / 保費比值 (33.3) 仍優於競品 A (25.0) 和競品 B (32.0)。</p>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover tech-table" id="medicalDetailTable">
+                        <thead>
+                            <tr>
+                                <th> 保單名稱 </th>
+                                <th> 重大疾病保障 </th>
+                                <th> 住院日額 </th>
+                                <th> 手術保障 </th>
+                                <th> 年保費 </th>
+                                <th> 總保障額度 </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="best-performance">
+                                <td> 自家保單 </td>
+                                <td>100 萬 </td>
+                                <td>5,000/ 日 </td>
+                                <td>15 萬 </td>
+                                <td>3 萬 </td>
+                                <td>100 萬 </td>
+                            </tr>
+                            <tr>
+                                <td> 競品 A</td>
+                                <td> 無 </td>
+                                <td>3,000/ 日 </td>
+                                <td>10 萬 </td>
+                                <td>2 萬 </td>
+                                <td>50 萬 </td>
+                            </tr>
+                            <tr>
+                                <td> 競品 B</td>
+                                <td>80 萬 </td>
+                                <td>4,000/ 日 </td>
+                                <td> 無 </td>
+                                <td>2.5 萬 </td>
+                                <td>80 萬 </td>
+                            </tr>
+                            <tr class="no-feature">
+                                <td> 競品 C</td>
+                                <td> 無 </td>
+                                <td> 無 </td>
+                                <td> 無 </td>
+                                <td>0</td>
+                                <td> 無 </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 綜合評分表格與圖表 -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel" style="height: 100%;">
+            <div class="tech-frame top-left"></div>
+            <div class="tech-frame top-right"></div>
+            <div class="tech-frame bottom-left"></div>
+            <div class="tech-frame bottom-right"></div>
+            <div class="panel-title"><i class="fas fa-star me-2"></i> 分析結果摘要 </div>
+            
+            <div id="reportSummary" class="mt-3">
+                <div class="kpi-card blue">
+                    <div class="label"> 最佳綜合評分 </div>
+                    <div class="value"> 自家保單 (9.5 / 10)</div>
+                </div>
+                
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="kpi-card green">
+                            <div class="label"> 最高年化報酬率 </div>
+                            <div class="value">3.2%</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="kpi-card green">
+                            <div class="label"> 最高配息率 </div>
+                            <div class="value">3.0%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="reportRecommendation" class="mt-4">
+                    <div class="alert alert-success">
+                        <h5><i class="fas fa-thumbs-up me-2"></i> 最佳建議 </h5>
+                        <p> 依據綜合分析，<strong> 自家保單 </strong> 在報酬率、配息表現及醫療保障三大方面均優於競品，建議推薦給重視全方位保障的客戶。</p>
+                        <p> 特別優勢：醫療保障最全面、報酬率最高、利率敏感度最低 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="panel">
+            <div class="tech-frame top-left"></div>
+            <div class="tech-frame top-right"></div>
+            <div class="tech-frame bottom-left"></div>
+            <div class="tech-frame bottom-right"></div>
+            <div class="panel-title"><i class="fas fa-chart-radar me-2"></i> 分析圖表 </div>
+            
+            <div class="chart-container" style="height: 300px;">
+                <canvas id="reportComparisonChart"></canvas>
+                <div class="shimmer-effect"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="panel">
+            <div class="tech-frame top-left"></div>
+            <div class="tech-frame top-right"></div>
+            <div class="tech-frame bottom-left"></div>
+            <div class="tech-frame bottom-right"></div>
+            <div class="panel-title"><i class="fas fa-table me-2"></i> 詳細比較數據 </div>
+            
+            <div class="table-responsive">
+                <table class="table table-striped table-hover tech-table" id="reportDetailTable">
+                    <thead>
+                        <tr>
+                            <th> 保單名稱 </th>
+                            <th> 年繳保費 </th>
+                            <th> 預定利率 </th>
+                            <th> 年配息 </th>
+                            <th> 期滿解約金 </th>
+                            <th>IRR</th>
+                            <th> 醫療評分 </th>
+                            <th> 綜合評分 </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="best-performance">
+                            <td> 自家保單 </td>
+                            <td>12 萬 </td>
+                            <td>2.1%</td>
+                            <td>1.5 萬 </td>
+                            <td>315 萬 </td>
+                            <td>3.2%</td>
+                            <td>9.3</td>
+                            <td>9.5</td>
+                        </tr>
+                        <tr>
+                            <td> 競品 A</td>
+                            <td>12 萬 </td>
+                            <td>1.8%</td>
+                            <td>1.3 萬 </td>
+                            <td>295 萬 </td>
+                            <td>2.8%</td>
+                            <td>7.5</td>
+                            <td>8.2</td>
+                        </tr>
+                        <tr>
+                            <td> 競品 B</td>
+                            <td>12 萬 </td>
+                            <td>2.0%</td>
+                            <td>1.4 萬 </td>
+                            <td>305 萬 </td>
+                            <td>3.0%</td>
+                            <td>8.2</td>
+                            <td>8.8</td>
+                        </tr>
+                        <tr>
+                            <td> 競品 C</td>
+                            <td>12 萬 </td>
+                            <td>1.6%</td>
+                            <td>1.2 萬 </td>
+                            <td>285 萬 </td>
+                            <td>2.5%</td>
+                            <td>0.0</td>
+                            <td>6.5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

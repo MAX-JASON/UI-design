@@ -45,6 +45,7 @@
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
         touch-action: manipulation;
+        position: relative;
     }
     
     /* 确保图标正确显示 */
@@ -62,19 +63,43 @@
     
     .dashboard-container {
         padding: 20px;
-        min-height: 100vh;
-        overflow: visible;
+        height: 100vh;
         width: 100%;
         max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    /* 添加 iOS 滚动条补丁 */
+    ::-webkit-scrollbar {
+        width: 8px;
+        background: rgba(0,229,255,0.1);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--accent-blue);
+        border-radius: 4px;
     }
     
     .panel {
         margin-bottom: 20px;
-        min-height: auto;
         padding: 20px;
         width: 100%;
         box-sizing: border-box;
         transform: none !important;
+        flex: 1 1 auto; /* 允许面板伸缩 */
+        min-height: min-content; /* 根据内容自动调整 */
+        overflow: visible; /* 确保内容溢出可见 */
+    }
+
+    .single-tab-content {
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
     }
     
     .btn-tech {
@@ -130,9 +155,12 @@
     
     .tech-card-advanced .card-body {
         padding: 15px;
-        max-height: 70vh;
-        overflow-y: auto;
+        max-height: none;
+        height: auto;
+        overflow-y: visible;
         -webkit-overflow-scrolling: touch;
+        display: block !important;
+        flex: 1;
     }
     
     .tech-card-advanced .row {
@@ -221,11 +249,15 @@ body {
 /* 主容器背景 */
 .dashboard-container {
     width: 100%;
+    min-height: 100%;
     padding: 15px;
     box-sizing: border-box;
     position: relative;
     z-index: 1;
     transition: padding 0.3s ease;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    height: auto;
 }
 
 /* 頭部設計 */
@@ -537,8 +569,11 @@ body {
     border-bottom: 1px solid rgba(0, 255, 157, 0.3);
 }
 
+.tech-table tr.best-performance td {
+    background-color: rgba(0, 255, 157, 0.15);
+    border-bottom: 1px solid rgba(0, 255, 157, 0.3);
+}
+
 .tech-table tr.best-performance:hover td {
     background-color: rgba(0, 255, 157, 0.25);
 }
-
-/* 按鈕樣式
