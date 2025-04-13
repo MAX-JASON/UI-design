@@ -1,0 +1,220 @@
+/**
+ * 標籤樣式修復和按鈕樣式優化
+ * 版本: 1.1.0 (2025-04-14)
+ * 更新: 修復所有導航按鈕的文字顯示問題
+ */
+
+/* 確保標籤文字始終可見 */
+.nav-tabs .nav-link {
+    color: white !important;
+    font-weight: bold !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+    white-space: nowrap !important;
+    text-shadow: 0 0 5px rgba(0, 229, 255, 0.7) !important;
+    letter-spacing: 0.5px !important;
+    padding: 10px 15px !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(0, 229, 255, 0.3) !important;
+    background-color: rgba(3, 37, 76, 0.7) !important;
+}
+
+.nav-tabs .nav-link:hover {
+    color: rgba(0, 229, 255, 1) !important;
+    background-color: rgba(3, 37, 76, 0.9) !important;
+    border-color: rgba(0, 229, 255, 0.7) !important;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.3) !important;
+}
+
+.nav-tabs .nav-link.active {
+    color: white !important;
+    background-color: rgba(0, 229, 255, 0.2) !important;
+    border-bottom-color: transparent !important;
+    border-top-color: rgba(0, 229, 255, 0.7) !important;
+    border-left-color: rgba(0, 229, 255, 0.7) !important;
+    border-right-color: rgba(0, 229, 255, 0.7) !important;
+    box-shadow: 0 -3px 10px rgba(0, 229, 255, 0.3) !important;
+    position: relative !important;
+}
+
+.nav-tabs .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, rgba(0, 229, 255, 0), rgba(0, 229, 255, 0.7), rgba(0, 229, 255, 0));
+}
+
+/* 針對禁用標籤的樣式 */
+.nav-tabs .nav-link[disabled], 
+.nav-tabs .nav-link:disabled {
+    opacity: 0.7 !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+}
+
+/* 修復計算分析按鈕樣式 */
+.btn-calculate {
+    background: linear-gradient(145deg, rgba(3, 37, 76, 0.7), rgba(0, 20, 40, 0.9)) !important;
+    color: white !important;
+    border: 2px solid rgba(0, 229, 255, 0.3) !important;
+    font-weight: bold !important;
+    font-size: 1.2rem !important;
+    text-shadow: 0 0 5px rgba(0, 229, 255, 0.7) !important;
+    position: relative !important;
+    overflow: visible !important;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2) !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.btn-calculate:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 5px 15px rgba(0, 229, 255, 0.4) !important;
+    border-color: rgba(0, 229, 255, 0.7) !important;
+}
+
+.btn-calculate:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.3) !important;
+}
+
+.btn-calculate::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid rgba(0, 229, 255, 0.5);
+    border-radius: inherit;
+    animation: pulse-border 2s infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse-border {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1.02);
+    }
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+}
+
+/* 確保產品導入標籤頁正常運作 */
+#products {
+    display: block !important;
+}
+
+#products.tab-pane.fade:not(.show) {
+    display: none !important;
+}
+
+#products.tab-pane.fade.show {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+/* 修復主導航按鈕文字顯示問題 */
+.btn-tech.btn-nav {
+    color: white !important;
+    font-weight: bold !important;
+    opacity: 1 !important;
+    text-shadow: 0 0 5px rgba(0, 229, 255, 0.7) !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    overflow: visible !important;
+    border: 2px solid rgba(0, 229, 255, 0.2) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: auto !important;
+    padding: 10px 15px !important;
+    min-height: 50px !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.5px !important;
+}
+
+.btn-tech.btn-nav:hover {
+    border-color: rgba(0, 229, 255, 0.7) !important;
+    background-color: rgba(0, 229, 255, 0.1) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(0, 229, 255, 0.3) !important;
+}
+
+.btn-tech.btn-nav.active {
+    background-color: rgba(0, 229, 255, 0.15) !important;
+    border-color: rgba(0, 229, 255, 0.7) !important;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.4) !important;
+}
+
+.btn-tech.btn-nav .fas,
+.btn-tech.btn-nav .fa {
+    margin-right: 8px !important;
+    color: rgba(0, 229, 255, 0.9) !important;
+}
+
+/* 確保所有按鈕內容可見 */
+.btn {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.btn-tech:before,
+.btn-nav:before {
+    content: "" !important;
+    position: absolute !important;
+    top: -1px !important;
+    left: -1px !important;
+    right: -1px !important;
+    bottom: -1px !important;
+    border: 1px solid rgba(0, 229, 255, 0.4) !important;
+    border-radius: inherit !important;
+    animation: pulse-border 2s infinite !important;
+    pointer-events: none !important;
+}
+
+/* 提升標籤視覺效果 */
+.tech-tabs {
+    background-color: rgba(3, 37, 76, 0.5) !important;
+    padding: 5px 5px 0 5px !important;
+    border-radius: 5px 5px 0 0 !important;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.3) !important;
+}
+
+/* 提升緊急控制按鈕顯示 */
+#emergency-controls {
+    border: 1px solid rgba(0, 229, 255, 0.5) !important;
+}
+
+#emergency-controls button {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+#emergency-controls button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    z-index: -1;
+    border-radius: inherit;
+}

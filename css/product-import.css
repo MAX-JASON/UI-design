@@ -1,0 +1,240 @@
+/**
+ * 產品導入模塊樣式
+ * 版本: 1.0.0 (2025-04-14)
+ */
+
+/* 產品導入卡片樣式 */
+.import-preview {
+    background-color: rgba(3, 37, 76, 0.7);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.import-preview:hover {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+    border-color: rgba(0, 229, 255, 0.5);
+}
+
+/* 技術列表樣式 */
+.tech-list {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.tech-list li {
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+/* 數據預覽容器 */
+.data-preview-container {
+    border-top: 1px solid rgba(0, 229, 255, 0.2);
+    padding-top: 15px;
+}
+
+#dataPreview {
+    background-color: rgba(2, 25, 48, 0.7);
+    max-height: 200px;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+#dataPreview:hover {
+    background-color: rgba(2, 30, 58, 0.8);
+}
+
+/* 產品卡片樣式 */
+.product-card {
+    background-color: rgba(3, 37, 76, 0.7);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 229, 255, 0.3);
+}
+
+.product-card .card-header {
+    border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+    padding: 10px 15px;
+}
+
+.product-card .card-body {
+    padding: 15px;
+}
+
+/* 產品表格樣式 */
+.product-table-container {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 15px;
+}
+
+.tech-table {
+    background-color: rgba(2, 25, 48, 0.7) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.tech-table thead th {
+    background-color: rgba(0, 229, 255, 0.1);
+    border-color: rgba(0, 229, 255, 0.2);
+    color: rgba(0, 229, 255, 0.8);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.tech-table tbody tr {
+    transition: all 0.2s ease;
+    border-color: rgba(0, 229, 255, 0.1);
+}
+
+.tech-table tbody tr:hover {
+    background-color: rgba(0, 229, 255, 0.05) !important;
+}
+
+/* 過濾器樣式 */
+.product-filter .form-select,
+.product-filter .form-control {
+    background-color: rgba(2, 25, 48, 0.8);
+    border-color: rgba(0, 229, 255, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.product-filter .form-select:focus,
+.product-filter .form-control:focus {
+    border-color: rgba(0, 229, 255, 0.6);
+    box-shadow: 0 0 0 0.25rem rgba(0, 229, 255, 0.15);
+}
+
+.product-filter .input-group-text {
+    background-color: rgba(0, 229, 255, 0.2);
+    border-color: rgba(0, 229, 255, 0.3);
+    color: rgba(0, 229, 255, 0.8);
+}
+
+/* 已選產品區域 */
+#selectedProductsContainer {
+    min-height: 200px;
+}
+
+.product-info p {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+/* 技術鏈接樣式 */
+.tech-link {
+    color: rgba(0, 229, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.tech-link:hover {
+    color: rgba(0, 229, 255, 1);
+    text-decoration: underline;
+}
+
+/* 表單相關樣式 */
+.tech-check .form-check-input {
+    background-color: rgba(3, 37, 76, 0.7);
+    border-color: rgba(0, 229, 255, 0.3);
+}
+
+.tech-check .form-check-input:checked {
+    background-color: rgba(0, 229, 255, 0.7);
+    border-color: rgba(0, 229, 255, 0.3);
+}
+
+.tech-input, .tech-select {
+    background-color: rgba(3, 37, 76, 0.7) !important;
+    border-color: rgba(0, 229, 255, 0.3) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: all 0.2s ease;
+}
+
+.tech-input:focus, .tech-select:focus {
+    border-color: rgba(0, 229, 255, 0.6) !important;
+    box-shadow: 0 0 0 0.25rem rgba(0, 229, 255, 0.15) !important;
+}
+
+/* 動畫和特效 */
+@keyframes pulseBorder {
+    0% {
+        border-color: rgba(0, 229, 255, 0.3);
+    }
+    50% {
+        border-color: rgba(0, 229, 255, 0.7);
+    }
+    100% {
+        border-color: rgba(0, 229, 255, 0.3);
+    }
+}
+
+.pulse-border {
+    animation: pulseBorder 2s infinite;
+}
+
+/* 通知樣式 */
+.tech-notification {
+    background-color: rgba(3, 37, 76, 0.9) !important;
+    border-color: rgba(0, 229, 255, 0.3) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-right: 35px;
+}
+
+.tech-notification.alert-success {
+    border-left: 4px solid rgba(40, 167, 69, 0.7) !important;
+}
+
+.tech-notification.alert-warning {
+    border-left: 4px solid rgba(255, 193, 7, 0.7) !important;
+}
+
+.tech-notification.alert-info {
+    border-left: 4px solid rgba(0, 229, 255, 0.7) !important;
+}
+
+.tech-notification.alert-error {
+    border-left: 4px solid rgba(220, 53, 69, 0.7) !important;
+}
+
+/* 確保內容在小屏幕設備上正確顯示 */
+@media (max-width: 992px) {
+    .import-preview {
+        margin-top: 20px;
+    }
+}
+
+/* 確保標簽頁內容可見 */
+#products.single-tab-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* 修復標簽頁切換問題 */
+#products.tab-pane.fade:not(.show) {
+    display: none !important;
+}
+
+#products.tab-pane.fade.show {
+    display: block !important;
+    opacity: 1 !important;
+}

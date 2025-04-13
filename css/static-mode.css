@@ -1,0 +1,175 @@
+/**
+ * 完全靜態模式樣式 - 禁用所有動態效果
+ * 版本: 1.0.0 (2025-04-14)
+ */
+
+/* 僅針對第一頁輸入參數框架進行靜態化 */
+#input .tech-card,
+#input .tech-card-advanced,
+#input .card-header,
+#input .card-body,
+#input .form-control,
+#input .form-select,
+#input .btn,
+#input .row,
+#input .col,
+#input .panel,
+#input [class*="tech-"] {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    animation-delay: 0s !important;
+    transition-delay: 0s !important;
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+}
+
+/* 確保動畫庫中的效果不會被應用 */
+.animate__animated,
+[class*="animate__"] {
+    animation: none !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    animation-fill-mode: both !important;
+    opacity: 1 !important;
+}
+
+/* 只移除第一頁輸入參數框架中的動態效果 */
+#input .shimmer-effect,
+#input .lightning-effect,
+#input .glow-effect,
+#input .pulse-effect,
+#input .scan-effect,
+#input .floating-effect {
+    opacity: 0 !important;
+    display: none !important;
+}
+
+/* 恢復其他頁面的動態效果 */
+#comparison .shimmer-effect,
+#report .shimmer-effect,
+#settings .shimmer-effect,
+#medicalAnalysis .shimmer-effect,
+.dashboard-grid > .panel > .shimmer-effect,
+.dashboard-grid > .panel > .lightning-effect {
+    opacity: 1 !important;
+    display: block !important;
+    animation: shimmer 3s infinite alternate !important;
+}
+
+/* 確保所有面板和卡片保持靜態 */
+.tech-card,
+.tech-card-advanced,
+.panel,
+.card {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.4) !important;
+    border: 1px solid rgba(0, 229, 255, 0.7) !important;
+}
+
+/* 確保所有表單元素保持靜態 */
+input,
+select,
+button,
+.form-control,
+.form-select,
+.btn {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* 按鈕懸停效果改為靜態效果 */
+.btn:hover,
+button:hover {
+    filter: brightness(1.1) !important;
+    transition: none !important;
+    transform: none !important;
+}
+
+/* 禁用粒子和背景動畫 */
+#particles-js,
+.particles-js-canvas-el {
+    opacity: 0.3 !important;
+    animation: none !important;
+}
+
+/* 禁用所有圖標的動畫效果 */
+.fas,
+.fab,
+.far,
+.fal,
+.fad,
+[class*="fa-"] {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* 禁用懸停效果 */
+*:hover {
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+}
+
+/* 覆蓋Bootstrap的內置動畫 */
+.fade,
+.collapse,
+.collapsing {
+    transition: none !important;
+    animation: none !important;
+}
+
+.fade.show {
+    opacity: 1 !important;
+    transition: none !important;
+}
+
+/* 修復標籤頁切換效果 */
+.tab-pane.fade {
+    display: none;
+    opacity: 1 !important;
+    transition: none !important;
+}
+
+.tab-pane.fade.show {
+    display: block !important;
+}
+
+/* 替換或移除其他特效 */
+[style*="animation"],
+[style*="transition"],
+[style*="transform"] {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+}
+
+/* 確保動態加載的內容立即可見 */
+[data-aos],
+[data-animation] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+}
+
+/* 恢復3D背景動態效果 */
+#particles-js {
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+    animation: fadeIn 1s ease-in-out !important;
+    z-index: -1 !important;
+}
+
+/* 添加沼浸式3D效果 */
+@keyframes fadeIn {
+    from { opacity: 0.4 !important; }
+    to { opacity: 1 !important; }
+}

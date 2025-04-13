@@ -1,0 +1,628 @@
+/* 定義科技主題變量 */
+:root {
+    --main-bg-color: #102a4a; /* 降低2/3暗度，原值为#040b19 */
+    --header-color: #173a5a; /* 降低暗度 */
+    --panel-bg: rgba(23, 58, 90, 0.7); /* 降低暗度 */
+    --panel-border: rgba(0, 210, 255, 0.7); /* 增加亮度 */
+    --text-color: #e0f7ff;
+    --accent-blue: #00e5ff;
+    --accent-blue-glow: rgba(0, 229, 255, 0.5);
+    --accent-green: #00ff9d;
+    --accent-green-glow: rgba(0, 255, 157, 0.5);
+    --accent-purple: #c961ff;
+    --accent-purple-glow: rgba(201, 97, 255, 0.5);
+    --accent-pink: #ff61dc;
+    --accent-orange: #ffae00;
+    --dark-blue: #061c38;
+
+    /* 多彩螢光色彩 */
+    --glow-blue: #00e5ff;
+    --glow-blue-bg: rgba(0, 229, 255, 0.7);
+    --glow-blue-bg-light: rgba(0, 229, 255, 0.3);
+    
+    --glow-green: #00ff9d;
+    --glow-green-bg: rgba(0, 255, 157, 0.7);
+    --glow-green-bg-light: rgba(0, 255, 157, 0.3);
+    
+    --glow-yellow: #ffd600;
+    --glow-yellow-bg: rgba(255, 214, 0, 0.7);
+    --glow-yellow-bg-light: rgba(255, 214, 0, 0.3);
+    
+    --glow-pink: #ff52ab;
+    --glow-pink-bg: rgba(255, 82, 171, 0.7);
+    --glow-pink-bg-light: rgba(255, 82, 171, 0.3);
+    
+    --glow-purple: #9b59ff;
+    --glow-purple-bg: rgba(155, 89, 255, 0.7);
+    --glow-purple-bg-light: rgba(155, 89, 255, 0.3);
+}
+
+/* iPad 特定样式 - 修复显示问题 */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        touch-action: manipulation;
+        position: relative;
+    }
+    
+    /* 确保图标正确显示 */
+    .fas, .fab, .far {
+        font-size: 24px;
+        min-width: 30px;
+        text-align: center;
+    }
+    
+    body {
+        -webkit-text-size-adjust: 100%;
+        touch-action: manipulation;
+        font-size: 16px;
+    }
+    
+    .dashboard-container {
+        padding: 20px;
+        height: 300vh; /* 增加3倍高度 */
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto; /* 只允许外框滚动 */
+        -webkit-overflow-scrolling: touch;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    /* 添加 iOS 滚动条补丁 */
+    ::-webkit-scrollbar {
+        width: 8px;
+        background: rgba(0,229,255,0.1);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--accent-blue);
+        border-radius: 4px;
+    }
+    
+    .panel {
+        margin-bottom: 30px; /* 增加间距 */
+        padding: 30px; /* 增加内边距 */
+        width: 100%;
+        box-sizing: border-box;
+        transform: none !important;
+        flex: 1 1 auto; /* 允许面板伸缩 */
+        min-height: min-content; /* 根据内容自动调整 */
+        overflow: visible; /* 确保内容溢出可见 */
+        border: 2px solid var(--accent-blue); /* 添加边框 */
+        box-shadow: 0 0 20px rgba(0, 229, 255, 0.4); /* 增强发光效果 */
+    }
+
+    .single-tab-content {
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .btn-tech {
+        padding: 16px 28px;
+        font-size: 18px;
+        min-height: 50px;
+        margin: 10px 0;
+    }
+    
+    /* 优化网格布局 */
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+    
+    /* 确保表单元素足够大 - 增大2倍 */
+    input, select, textarea, button {
+        min-height: 100px; /* 增大高度 */
+        font-size: 24px; /* 增大字体 */
+        padding: 20px 25px; /* 增大内边距 */
+        margin-bottom: 15px; /* 增加下边距 */
+    }
+    
+    /* 计算分析按钮突出显示 */
+    .btn-calculate {
+        background: linear-gradient(45deg, rgba(0, 255, 157, 0.5), rgba(0, 80, 40, 0.8)) !important;
+        border: 2px solid var(--accent-green) !important;
+        box-shadow: 0 0 25px rgba(0, 255, 157, 0.7) !important;
+        color: white !important;
+        text-align: center !important;
+        font-weight: bold !important;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8) !important;
+        animation: pulse-highlight 2s infinite alternate !important;
+    }
+    
+    @keyframes pulse-highlight {
+        0% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 255, 157, 0.5); }
+        100% { transform: scale(1.03); box-shadow: 0 0 30px rgba(0, 255, 157, 0.8); }
+    }
+    
+    /* 修复触摸反馈 */
+    .ios-active {
+        transform: scale(0.97);
+        opacity: 0.8;
+        transition: transform 0.1s ease, opacity 0.1s ease;
+    }
+    
+    /* 方向变化处理 */
+    .ios-landscape .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .ios-portrait .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* 图表容器调整 */
+    .chart-container {
+        height: 350px !important;
+    }
+    
+    /* 高级分析选项区域调整 */
+    .tech-card-advanced {
+        padding: 30px;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0 auto 30px auto;
+        max-width: 100%;
+        transform: none !important;
+        max-height: none; /* 取消高度限制 */
+        overflow-y: visible; /* 取消内框滚动 */
+        border: 2px solid var(--accent-blue); /* 保留边框 */
+        box-shadow: 0 0 20px rgba(0, 229, 255, 0.4); /* 保留光晕效果 */
+    }
+    
+    .tech-card-advanced .card-body {
+        padding: 15px;
+        max-height: none;
+        height: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+        display: block !important;
+        flex: 1;
+    }
+    
+    .tech-card-advanced .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    
+    .tech-card-advanced .col-md-4,
+    .tech-card-advanced .col-md-6 {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    /* 确保表单元素在 iPad 上有足够的触摸区域 */
+    .tech-card-advanced .form-check-label,
+    .tech-card-advanced .form-label {
+        font-size: 16px;
+        padding: 8px 0;
+        display: block;
+    }
+    
+    .tech-card-advanced .form-control,
+    .tech-card-advanced .form-select,
+    .tech-card-advanced .form-range {
+        min-height: 44px;
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+    
+    .tech-card-advanced .form-check-input {
+        width: 20px;
+        height: 20px;
+        margin-top: 0.3em;
+    }
+    
+    .tech-card-advanced .form-check {
+        margin-bottom: 15px;
+    }
+    
+    .tech-card-advanced .tech-divider {
+        margin: 20px 0;
+    }
+    
+    /* 标题调整 */
+    h1 {
+        font-size: 24px;
+    }
+    
+    /* 表格调整 */
+    .tech-table th, 
+    .tech-table td {
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+}
+
+/* 全局字體設定 */
+body, input, select, button, textarea, label, p, span, div, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rajdhani', "Microsoft YaHei", Arial, sans-serif;
+    color: var(--text-color);
+    letter-spacing: 0.5px;
+    font-weight: 400;
+}
+
+/* 科技感背景設定 */
+body {
+    margin: 0;
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    background-image: radial-gradient(circle at 50% 50%, #0c2850 0%, #040b19 100%);
+}
+
+/* 粒子背景 */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* 主容器背景 */
+.dashboard-container {
+    width: 100%;
+    min-height: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    transition: padding 0.3s ease;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    height: auto;
+}
+
+/* 頭部設計 */
+.header {
+    background-color: var(--header-color);
+    border-top: 1px solid var(--accent-blue);
+    border-bottom: 1px solid var(--accent-blue);
+    padding: 12px 0;
+    text-align: center;
+    position: relative;
+    margin-bottom: 25px;
+    box-shadow: 0 0 30px var(--accent-blue-glow);
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, 
+        transparent 0%, 
+        var(--accent-blue) 20%, 
+        var(--accent-blue) 80%, 
+        transparent 100%);
+    animation: scanline 3s linear infinite;
+}
+
+.shimmer-effect {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.3) 50%, /* 增强亮度 */
+        rgba(255,255,255,0) 100%
+    );
+    background-position: -200% 0;
+    background-repeat: no-repeat;
+    animation: shimmer 5s infinite; /* 加快动画速度 */
+}
+
+@keyframes scanline {
+    0% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        transform: translateY(100px);
+        opacity: 0.5;
+    }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 300% 0; }
+}
+
+.lightning-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(0,229,255,0.1) 0%, rgba(255,255,255,0.6) 50%, rgba(0,229,255,0.1) 100%);
+    animation: lightning 8s infinite;
+}
+
+@keyframes lightning {
+    0%, 100% { opacity: 0; }
+    48%, 52% { opacity: 0; }
+    50% { opacity: 0.8; }
+}
+
+.panel {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+    perspective: 1000px;
+    position: relative;
+}
+
+.panel:hover {
+    transform: translateZ(10px) rotateX(2deg) rotateY(2deg) !important;
+    box-shadow: 0 15px 30px rgba(0, 229, 255, 0.5) !important;
+}
+
+.header .logo {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-blue);
+    font-size: 20px;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+.header .datetime {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: var(--accent-blue);
+    padding: 4px 10px;
+    border: 1px solid var(--accent-blue);
+    border-radius: 4px;
+    background-color: rgba(0, 229, 255, 0.1);
+    box-shadow: 0 0 10px var(--accent-blue-glow);
+}
+
+/* 網格布局 */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    perspective: 1000px;
+}
+
+/* 面板通用樣式 */
+.panel {
+    background-color: var(--panel-bg);
+    border-radius: 8px;
+    padding: 15px;
+    position: relative;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--panel-border);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    animation: panelFadeIn 0.5s ease-out forwards;
+    opacity: 0;
+    transition: padding 0.3s ease, margin 0.3s ease;
+    margin-bottom: 15px;
+}
+
+@keyframes panelFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--accent-blue), transparent);
+}
+
+.panel::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0, 229, 255, 0.05), transparent);
+    pointer-events: none;
+}
+
+.panel-title {
+    position: relative;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.panel-title::before {
+    content: "⊙";
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-blue);
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* KPI 卡片樣式 */
+.kpi-card {
+    background-color: rgba(255, 174, 0, 0.1);
+    border: 1px solid var(--accent-orange);
+    border-radius: 5px;
+    padding: 10px 18px;
+    margin: 12px 0;
+    color: white;
+    text-align: center;
+    min-width: 140px;
+    position: relative;
+    box-shadow: 0 0 15px rgba(255, 174, 0, 0.2);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(255, 174, 0, 0.3);
+}
+
+.kpi-card::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--accent-orange);
+}
+
+.kpi-card.blue {
+    background-color: rgba(0, 229, 255, 0.1);
+    border: 1px solid var(--accent-blue);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+}
+
+.kpi-card.blue:hover {
+    box-shadow: 0 5px 20px rgba(0, 229, 255, 0.3);
+}
+
+.kpi-card.blue::after {
+    border-top-color: var(--accent-blue);
+}
+
+.kpi-card.green {
+    background-color: rgba(0, 255, 157, 0.1);
+    border: 1px solid var(--accent-green);
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
+}
+
+.kpi-card.green:hover {
+    box-shadow: 0 5px 20px rgba(0, 255, 157, 0.3);
+}
+
+.kpi-card.green::after {
+    border-top-color: var(--accent-green);
+}
+
+.kpi-card .value {
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.kpi-card .label {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* 表格樣式 */
+.tech-table {
+    width: 100%;
+    color: var(--text-color);
+    margin-bottom: 2.5rem;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 6px;
+    overflow: visible;
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.5); /* 保留阴影 */
+    font-size: 120%; /* 保留大字体 */
+    max-height: none; /* 取消高度限制 */
+    overflow-y: visible; /* 取消内框滚动 */
+}
+
+.tech-table th {
+    background: linear-gradient(45deg, rgba(0, 60, 120, 0.8), rgba(0, 40, 80, 0.8));
+    border-bottom: 2px solid var(--accent-blue);
+    color: var(--accent-blue);
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    font-size: 14px;
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+    text-align: center;
+}
+
+.tech-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.1);
+    background-color: rgba(6, 28, 56, 0.4);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.tech-table tr:hover td {
+    background-color: rgba(0, 229, 255, 0.15);
+    transform: scale(1.01);
+}
+
+/* 表格中最佳表現行樣式 */
+.tech-table tr.best-performance td {
+    background-color: rgba(0, 255, 157, 0.15);
+    border-bottom: 1px solid rgba(0, 255, 157, 0.3);
+}
+
+.tech-table tr.best-performance td {
+    background-color: rgba(0, 255, 157, 0.15);
+    border-bottom: 1px solid rgba(0, 255, 157, 0.3);
+}
+
+.tech-table tr.best-performance:hover td {
+    background-color: rgba(0, 255, 157, 0.25);
+}

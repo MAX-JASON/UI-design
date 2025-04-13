@@ -1,0 +1,71 @@
+/**
+ * 禁用動態效果樣式
+ * 版本: 1.0.0 (2025-04-14)
+ */
+
+/* 禁用輸入界面的所有動畫效果 */
+#input .animate__animated,
+#input [class*="animate__"],
+#input [style*="animation"],
+#input [style*="transition"] {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+/* 禁用輸入界面中的所有特效 */
+#input .shimmer-effect,
+#input .lightning-effect,
+#input .glow-effect,
+#input .pulse-effect,
+#input .scan-effect {
+    display: none !important;
+}
+
+/* 固定面板樣式 */
+#input .tech-card,
+#input .tech-card-advanced,
+#input .panel {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.4) !important;
+    border: 1px solid var(--accent-blue) !important;
+}
+
+/* 確保所有輸入框和按鈕沒有動畫效果 */
+#input input,
+#input select,
+#input button,
+#input .form-control,
+#input .form-select,
+#input .btn {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+}
+
+/* 禁用懸停效果 */
+#input *:hover {
+    transform: none !important;
+    animation: none !important;
+}
+
+/* 直接顯示所有內容，無需動畫淡入 */
+#input .row,
+#input .col,
+#input .tech-card-advanced,
+#input .card-body {
+    opacity: 1 !important;
+    animation: none !important;
+    transition: none !important;
+}
+
+/* 確保所有文字和圖標顯示清晰 */
+#input .tech-bright-text,
+#input .fas,
+#input .form-label {
+    text-shadow: none !important;
+    animation: none !important;
+}

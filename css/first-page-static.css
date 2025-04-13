@@ -1,0 +1,103 @@
+/**
+ * 第一页输入参数框架静态化
+ * 版本: 1.0.0 (2025-04-14)
+ */
+
+/* 禁用第一页所有动画和特效 */
+#input,
+#input *,
+#input .tech-card,
+#input .tech-card-advanced,
+#input .card-header,
+#input .card-body,
+#input .form-control,
+#input .form-select,
+#input .btn,
+#input .row,
+#input .col,
+#input .panel,
+#input [class*="tech-"],
+#input [class*="animate__"],
+#input [class*="glow-"],
+#input i.fas {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    animation-delay: 0s !important;
+    transition-delay: 0s !important;
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+    animation-fill-mode: none !important;
+    animation-timing-function: linear !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+/* 禁用主面板动画效果 */
+.dashboard-grid .panel,
+.dashboard-grid .panel *,
+.dashboard-grid .panel .tech-frame,
+.tab-content,
+.tab-content * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+}
+
+/* 完全移除特效元素 */
+.shimmer-effect,
+.lightning-effect,
+.glow-effect,
+.pulse-effect,
+.scan-effect {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* 静态化框架边角 */
+.tech-frame {
+    border-color: rgba(0, 229, 255, 0.7) !important;
+    box-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+}
+
+/* 确保输入框和按钮不动 */
+#input input,
+#input select,
+#input button,
+#input .form-control,
+#input .form-select,
+#input .btn {
+    border-color: rgba(0, 229, 255, 0.7) !important;
+    box-shadow: none !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* 禁用悬停效果 */
+#input *:hover,
+.dashboard-grid .panel *:hover,
+.tab-content *:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+/* 禁用主面板中的所有特效 */
+.dashboard-grid .panel .shimmer-effect,
+.dashboard-grid .panel .lightning-effect {
+    display: none !important;
+    opacity: 0 !important;
+}
+
+/* 静态化卡片 */
+.tech-card, 
+.tech-card-advanced {
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.4) !important;
+    border: 1px solid rgba(0, 229, 255, 0.7) !important;
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+}

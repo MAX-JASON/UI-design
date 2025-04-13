@@ -1,0 +1,68 @@
+/**
+ * 背景板颜色调整
+ * 版本: 1.0.0 (2025-04-14)
+ */
+
+/* 调整主体背景颜色，使其更亮 */
+body {
+    background-color: #0c1530 !important; /* 更亮的深蓝色 */
+    background: linear-gradient(145deg, #0c1530, #1a2a5a) !important;
+}
+
+/* 增强粒子效果的可见性 */
+#particles-js {
+    opacity: 0.9 !important;
+    z-index: 0 !important;
+}
+
+/* 调整粒子画布的滤镜效果 */
+.particles-js-canvas-el {
+    filter: brightness(1.3) contrast(1.2) !important;
+}
+
+/* 增强闪光效果的亮度 */
+.shimmer-effect:not(#input .shimmer-effect) {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 229, 255, 0.05) 0%,
+        rgba(0, 229, 255, 0.2) 50%,
+        rgba(0, 229, 255, 0.05) 100%
+    ) !important;
+    opacity: 0.8 !important;
+}
+
+/* 调整面板背景色，增加透明度 */
+.panel {
+    background-color: rgba(17, 29, 59, 0.85) !important;
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.2) !important;
+}
+
+/* 增强技术框架线条的亮度 */
+.tech-frame {
+    border-color: rgba(0, 229, 255, 0.9) !important;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.6) !important;
+}
+
+/* 强化背景照明效果 */
+.dashboard-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, 
+                  rgba(0, 229, 255, 0.15), 
+                  transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 确保3D元素在较亮的背景下仍然可见 */
+.lightning-effect:not(#input .lightning-effect) {
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 229, 255, 0.9) 0%,
+        rgba(0, 229, 255, 0) 70%
+    ) !important;
+}

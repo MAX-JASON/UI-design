@@ -1,0 +1,131 @@
+/**
+ * 恢复3D背景动态效果
+ * 版本: 1.0.0 (2025-04-14)
+ */
+
+/* 恢复粒子背景效果 */
+#particles-js {
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+    z-index: -1 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* 恢复3D特效 */
+.shimmer-effect:not(#input .shimmer-effect) {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 229, 255, 0) 0%,
+        rgba(0, 229, 255, 0.1) 50%,
+        rgba(0, 229, 255, 0) 100%
+    ) !important;
+    background-size: 200% 200% !important;
+    animation: shimmer 3s infinite alternate !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+.lightning-effect:not(#input .lightning-effect) {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    opacity: 0 !important;
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 229, 255, 0.8) 0%,
+        rgba(0, 229, 255, 0) 70%
+    ) !important;
+    animation: lightning 7s infinite !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+}
+
+/* 定义动画效果 */
+@keyframes shimmer {
+    0% {
+        background-position: -100% -100%;
+        opacity: 0.3;
+    }
+    100% {
+        background-position: 200% 200%;
+        opacity: 0.7;
+    }
+}
+
+@keyframes lightning {
+    0%, 100% {
+        opacity: 0;
+    }
+    97% {
+        opacity: 0;
+    }
+    97.5% {
+        opacity: 0.5;
+    }
+    98% {
+        opacity: 0;
+    }
+    98.5% {
+        opacity: 0.4;
+    }
+    99% {
+        opacity: 0;
+    }
+}
+
+/* 恢复第二三页面框架的动态效果 */
+#comparison .tech-frame,
+#report .tech-frame,
+#settings .tech-frame,
+#medicalAnalysis .tech-frame,
+.dashboard-grid > .panel > .tech-frame {
+    position: absolute !important;
+    width: 20px !important;
+    height: 20px !important;
+    border: 2px solid var(--accent-cyan) !important;
+    transition: all 0.3s ease-in-out !important;
+    animation: framePulse 2s infinite alternate !important;
+    z-index: 3 !important;
+}
+
+@keyframes framePulse {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 229, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
+    }
+}
+
+/* 确保其他元素的动画效果 */
+.tab-pane:not(#input),
+.tab-pane:not(#input) .tech-card,
+.tab-pane:not(#input) .tech-card-advanced,
+.tab-pane:not(#input) .btn {
+    transition: all 0.3s ease-in-out !important;
+}
+
+/* 按钮悬停效果 */
+.btn:not(#input .btn):hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0, 229, 255, 0.5) !important;
+}
+
+/* 卡片悬停效果 */
+.tech-card:not(#input .tech-card):hover,
+.tech-card-advanced:not(#input .tech-card-advanced):hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 5px 15px rgba(0, 229, 255, 0.6) !important;
+}

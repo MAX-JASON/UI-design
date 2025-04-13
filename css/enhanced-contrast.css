@@ -1,0 +1,75 @@
+/**
+ * 加强背景对比度
+ * 版本: 1.0.0 (2025-04-14)
+ */
+
+/* 进一步调亮背景色 */
+body {
+    background-color: #122040 !important; /* 更亮的蓝色 */
+    background: linear-gradient(145deg, #122040, #2a3a6a) !important;
+}
+
+/* 加强粒子效果 */
+#particles-js {
+    filter: brightness(1.5) !important;
+    mix-blend-mode: screen !important;
+}
+
+/* 调整面板背景透明度，降低背景遮挡 */
+.panel {
+    background-color: rgba(17, 29, 59, 0.75) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+}
+
+/* 增强tech-frame亮度 */
+.tech-frame {
+    border-width: 2px !important;
+    border-color: rgba(0, 229, 255, 1) !important;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.8) !important;
+}
+
+/* 增强发光效果 */
+.shimmer-effect {
+    opacity: 0.9 !important;
+}
+
+/* 调整lightning效果 */
+.lightning-effect {
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.5) !important;
+}
+
+/* 添加额外的背景照明 */
+.dashboard-container::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(0, 229, 255, 0.15),
+        transparent 60%
+    ),
+    radial-gradient(
+        circle at 70% 70%,
+        rgba(0, 229, 255, 0.1),
+        transparent 60%
+    );
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 确保粒子画布清晰可见 */
+.particles-js-canvas-el {
+    opacity: 1 !important;
+    mix-blend-mode: screen !important;
+}
+
+/* 添加强调高亮 */
+.header, .nav-tabs {
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.3) !important;
+}

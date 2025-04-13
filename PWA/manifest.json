@@ -1,0 +1,67 @@
+{  "name": " 台灣儲蓄險分析系統 ",
+  "short_name": " 儲蓄險分析 ",
+  "description": " 專業儲蓄險分析與比較系統 ",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#040b19",
+  "theme_color": "#040b19",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/maskable-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {      "name": " 開始分析 ",
+      "short_name": " 分析 ",
+      "description": " 執行儲蓄險分析 ",
+      "url": "./index.html?action=analyze",
+      "icons": [{ "src": "icons/icon-144.png", "sizes": "144x144" }]
+    }
+  ],
+  "categories": ["finance", "business", "productivity"],  "lang": "zh-TW",
+  "dir": "ltr",
+  "scope": "./",
+  "prefer_related_applications": false,
+  "related_applications": [{
+    "platform": "webapp",
+    "url": "https://max-jason.github.io/ZWSHECEN/manifest.json"
+  }]
+}
+
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {      "name": " 開始分析 ",
+      "short_name": " 分析 ",
+      "description": " 執行儲蓄險分析 ",
+      "url": "./index.html?action=analyze",
+      "icons": [{ "src": "icons/icon-144.png", "sizes": "144x144" }]
+    }
+  ],
+  "categories": ["finance", "business", "productivity"],  "lang": "zh-TW",
+  "dir": "ltr",
+  "scope": "./",
+  "prefer_related_applications": false,
+  "related_applications": [{
+    "platform": "webapp",
+    "url": "https://max-jason.github.io/ZWSHECEN/manifest.json"
+  }]
+}
