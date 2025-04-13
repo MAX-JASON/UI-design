@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣儲蓄險分析系統 3.0</title>
+    <meta http-equiv="refresh" content="0; url=html/index.html">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #040b19;
+            color: #cceeff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+        }
+        
+        .loading {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin-top: 20px;
+        }
+        
+        .loading div {
+            position: absolute;
+            border: 4px solid #cceeff;
+            opacity: 1;
+            border-radius: 50%;
+            animation: loading 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+        
+        .loading div:nth-child(2) {
+            animation-delay: -0.5s;
+        }
+        
+        @keyframes loading {
+            0% {
+                top: 36px;
+                left: 36px;
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                top: 0px;
+                left: 0px;
+                width: 72px;
+                height: 72px;
+                opacity: 0;
+            }
+        }
+        
+        a {
+            color: #56ccf2;
+            margin-top: 30px;
+            text-decoration: none;
+            border: 1px solid #56ccf2;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        a:hover {
+            background-color: #56ccf2;
+            color: #040b19;
+        }
+    </style>
+</head>
+<body>
+    <h1>台灣儲蓄險分析系統 3.0</h1>
+    <p>正在加載應用，請稍候...</p>
+    <div class="loading"><div></div><div></div></div>
+    <a href="html/index.html">如果沒有自動跳轉，請點擊這裡</a>
+    
+    <script>
+        // 確保跳轉到正確位置
+        window.location.href = "html/index.html";
+    </script>
+</body>
+</html>
